@@ -1,0 +1,297 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	flex-basis: inherit;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -150px;
+    visibility: hidden;
+}
+
+.hero-grid {
+
+	/*    justify-content: center;*/
+	/*    align-items: center;*/
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	border-bottom-style: solid;
+	border-width: 1px;
+	margin-left: 5rem;
+	margin-right: 5rem;
+	height: 100vh;
+}
+
+
+
+.c-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	border-bottom-style: solid;
+	border-width: 1px;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
+.c-grid#designrationale {
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}
+
+.c-grid#titlepage {
+	justify-content: center;
+	text-align: center;
+	border-bottom-style: hidden;
+	padding-top: 10rem;
+}
+
+
+
+.c-grid#titlepage img {
+	justify-content: center;
+	text-align: center;
+}
+
+.l-grid {
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom-style: solid;
+	border-width: 1px;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
+.together {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	flex-basis: 45rem;
+}
+
+/* ///////////////////TYPE/////////////////////// */
+.type {
+	grid-column: 1 / span 2;
+	/*
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr .3fr;
+*/
+	/*    display: flex;*/
+	/*    flex-wrap: wrap;*/
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	/*    padding-top: 15%;*/
+	/*    padding-bottom: 10rem;*/
+	/*    padding-left: 20rem;*/
+	padding-right: 10%;
+	/*	padding-top: 50vh;*/
+
+	/*
+	    border-bottom-style: solid;
+    border-width: 1px;
+*/
+}
+
+.typeimg {
+	grid-column: 3 / span 2;
+/*
+	width: auto;
+	height: 100%;
+*/
+
+
+	padding-top: 25vh;
+
+
+}
+
+.typeimg img{
+		/*	padding-top:100%;*/
+		animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+}
+
+
+
+.type div {
+	grid-column: 1 / span 2;
+	padding-top: 35vh;
+
+	/*	top:50%;*/
+	/*  align-self: center;*/
+	/*	margin-top: auto;*/
+
+
+}
+
+.type h3 {
+	padding: 0px;
+	max-width: 40rem;
+	text-align: left;
+}
+
+.type h1 {
+	max-width: 40rem;
+	text-align: left;
+}
+
+.type p {
+	max-width: 40rem;
+	text-align: left;
+
+}
+
+.type img {
+	margin-top: 2rem;
+	padding-left: 5%;
+}
+
+#one-of-three p{
+	padding-left: 5px;
+	max-width:250px;
+	text-align: left;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+/* //////////////scan/////////////// */
+.scan {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	/* margin-top: 2rem;
+    margin-bottom: 2rem; */
+}
+
+.together h1,
+.together p {
+	flex-basis: 0rem;
+	margin-right: 5rem;
+}
+
+.scan .together {
+	flex-basis: 55rem;
+}
+
+.scan img {
+	margin: 5rem;
+}
+
+/* /////////////////////////////////////////////// */
+
+/* //////////////homefeed/////////////// */
+.homefeed,
+.catalog
+,.prototype
+,.you
+{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
+
+.scan,
+.prototype,
+.you {
+
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+
+}
+
+.homefeed .together,
+.catalog .together ,
+.prototype .together
+{
+	flex-basis: 100rem;
+}
+
+.one-two {
+/*	max-width: 50%;*/
+}
+
+.homefeed #one-of-three,
+.catalog #one-of-three,
+.prototype #one-of-three
+{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	/*    flex-basis: 28rem;*/
+}
+
+
+/* /////////////////////////////////////////////// */
+/* //////////////catalog/////////////// */
+.catalog-filter {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.catalog-filter img {
+	/* padding-left:1rem;
+    padding-right:1rem; */
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+/* //////////////////////////////////////////////////// */
+
+/* //////////////prototype/////////////// */
+.prototype,
+.you {
+/*
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+*/
+}
+
+.prototype img,
+.you img {
+	
+	margin-top: 5rem;
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.prototype .together {
+	
+	flex-basis: 40rem;
+	margin-right: 5rem;
+}
+
+.prototype #one-of-two,
+.you #one-of-two,
+.team #one-of-two {
+	text-align: center;
+	flex-basis: 5rem;
+}
+
+/* /////////////////////////////////////////////// */
+
+
+
+
+
+/* /////////////////////Design Rationale////////////////////////// */
+
+/* ///////////////////Design Opportunity/////////////////////// */
+
+.designopportunity {
+	padding-top: 6rem;
+}
+
+/* /////////////////////////////////////////////// */
