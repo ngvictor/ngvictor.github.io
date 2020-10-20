@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-72839234-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-72839234-1');
+	</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran:300,400,500,600,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500|Rubik:300,400,500&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="projectcss2.css">
+	<link rel="stylesheet" href="https://use.typekit.net/dyt7euj.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Learning Blog</title>
+
+</head>
+
+<body>
+	<div class="masternav">
+		<div class="topnav">
+			<span class="logo">
+				<!--				<a href="index.html"><img src="img/logo.png" alt="Victor Ng Logo" width='50'></a>-->
+				<a href="default.html">
+					<figure class="swap-on-hover">
+						<img class="swap-on-hover__front-image" src="img/logo.png" />
+						<img class="swap-on-hover__back-image" src="img/logo2.png" />
+					</figure>
+				</a>
+
+			</span>
+		</div>
+
+		<div class="topnavright">
+			<div class="navlinks">
+				<a href="default.html" id="work">
+					◄ BACK </a>
+				<a href="about.html" id="about">
+					ABOUT
+				</a>
+			</div>
+		</div>
+
+		
+
+
+
+	<div class="wrapper">
+
+		<div class="grid-row hero appear">
+			<img src="proj2img/1_yfRmBq_ksccE-I-DtjzrKA.png" alt="hero image" >
+		</div>
+
+		<div class="grid-row block">
+			<div class="projectdescription">
+				<!--				<h1>Type.</h1>-->
+				<h3 class="herotext"> Section for blog entries for MDEI 2020
+				</h3>
+
+
+			</div>
+		</div>
+
+		<!--		OVERVIEW-->
+		<a class="anchor" id="overview"></a>
+		<div class="grid-row sidebyside">
+
+			<div class="one-of-2 title">
+				<small>01 </small>Learning Journey Blog - MDEI 2020
+			</div>
+	
+<h2>MDEI Bootcamp</h2>
+
+			
+<p>
+	This was the first (unofficial) week of my new MDEI journey. Initially our intake of 2020 was suppose to start in person at the University of Waterloo in Fall but due to COVID, a lot of plans changed this year. Despite this, the faculty at MDEI continued on delivering high quality content  and teachings through the remote model which is highly commendable. Moreover, I appreciate the asynchronous lesson plans to accommodate the students from all over the world. 
+<br><br>
+
+	For myself, I'm currently working out of Vancouver Canada on the West so I missed out morning session. In addition, I'm still finishing my 2nd last week of my internship so things were a little hectic this week. 
+	<br><br>
+	The highlights for me this week was the interactive story telling module, where I got to meet a few of my classmates. What I was particularly impressed with was how coordinated everyone was and leveraged Teams to assemble into teams. (ironic right?) It was also refreshing to see everyone's Miro board which was also the first time I used the tool myself, I believe it would be one of the tools our class would take advantage of with this remote model. 
+	<br><br>
+	In a learning perspective, the usability testing modules refreshed my memory of what I had read about a while back. Since I had recently done usability testing during my internship, it was nice to put into words what I had experienced. 
+	<br><br>
+	Overall, it was a great start to MDEI and shout out to the class as well as the instructors for guiding us along the way. I look forward to what the program has to offer in the weeks to come.</p>
+			
+						<img class="smallpic topbottompic shadow" src="proj2img/Screen Shot 2020-09-01 at 5.15.32 PM.png">
+
+
+		<footer> <a href="default.html">Back to my work. </a>  </footer>
+
+</body>
+
+<!--	//smooth tabbing-->
+<script>
+	//	SOURCE for script
+	//	https://www.w3schools.com/jquery/tryit.asp? filename=tryjquery_eff_animate_smoothscroll
+
+	$(document).ready(function() {
+		// Add smooth scrolling to all links
+		$("a").on('click', function(event) {
+
+			// Make sure this.hash has a value before overriding default behavior
+			if (this.hash !== "") {
+				// Prevent default anchor click behavior
+				event.preventDefault();
+
+				// Store hash
+				var hash = this.hash;
+
+				// Using jQuery's animate() method to add smooth page scroll
+				// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				}, 800, function() {
+
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+				});
+			} // End if
+		});
+	});
+</script></html>

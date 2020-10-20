@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	/*
+	font-family: motiva-sans, sans-serif;
+	font-weight: 200;
+*/
+	font-family: 'Catamaran', sans-serif;
+}
+
+@font-face {
+	font-family: 'navigoregular';
+	src: url('font/navigo-regular-webfont.woff2') format('woff2'),
+		url('font/navigo-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+@font-face {
+	font-family: 'navigolight';
+	src: url('font/navigo-light-webfont.woff2') format('woff2'),
+		url('font/navigo-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'navigobold';
+	src: url('font/navigo-bold-webfont.woff2') format('woff2'),
+		url('font/navigo-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'relativebold';
+	src: url('font/relative-bold-webfont.woff2') format('woff2'),
+		url('font/relative-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'relativebook';
+	src: url('font/relative-book-webfont.woff2') format('woff2'),
+		url('font/relative-book-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'relativemedium';
+	src: url('font/relative-medium-webfont.woff2') format('woff2'),
+		url('font/relative-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+html,
+body {
+	margin: 0px;
+	padding: 0px;
+	/*	background-color: #232323;*/
+	background-color: #faebd7;
+	/*		background-color: #0b6e4f;*/
+	font-family: 'Catamaran', sans-serif;
+	overflow-X: hidden;
+
+}
+* {
+  box-sizing: border-box;
+}
+/*
+TOP NAV FIXED 
+*/
+
+.topnav {
+
+position: fixed;
+left: 0px;
+
+/*  align-items: stretch;*/
+font-size: 1.5em;
+margin-top: 3%;
+margin-left: 5%;
+
+z-index: 2;
+letter-spacing: 1.5px;
+}
+
+.topnavright {
+
+/*		justify-content: flex-end;*/
+/*		flex-wrap: nowrap;*/
+position: fixed;
+right: 0px;
+font-size: 1.5em;
+margin-top: 5%;
+margin-right: 5%;
+z-index: 2;
+letter-spacing: 1.5px;
+
+/*  align-items: stretch;*/
+}
+
+.logo {
+/*		flex-grow: 1;*/
+/*		margin-right: auto;*/
+display: inline-block;
+
+}
+
+.navlinks a {
+/*	padding-left: 25%;*/
+/*	align-self: flex-end;*/
+/*
+align-items: center;
+align-content: center;
+*/
+margin-left: 1em;
+color:red;
+}
+
+
+/* Style the links inside the navigation bar */
+.topnavright a {
+color: #3D3D3D;
+/*	color: #6D6E71;*/
+/*	text-align: center;*/
+/*	padding: 14px 20px;*/
+text-decoration: none;
+font-size: .7em;
+}
+
+/* Make the container relative */
+.swap-on-hover {
+position: relative;
+/*	margin:  0 auto;*/
+/*	max-width: 10%;*/
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover img {
+position: absolute;
+
+overflow: hidden;
+/* Sets the width and height for the images*/
+width: 45px;
+}
+
+
+.swap-on-hover .swap-on-hover__front-image {
+z-index: 9999;
+transition: opacity .3s ease-out;
+cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover:hover > .swap-on-hover__front-image {
+opacity: 0;
+}
+
+.logonav {
+width: 10%;
+}
+
+.topnav a {
+/*	color: #6D6E71;*/
+color: #C2C2C2;
+/*	text-align: center;*/
+/*	padding: 14px 20px;*/
+text-decoration: none;
+font-weight: 500;
+}
+
+/* Change the color of links on hover */
+.navlinks a:hover {
+color: #18CC61;
+font-weight: 700;
+
+}
+
+/* .logo a:hover {
+display: inline-block;
+color: #18CC61;
+font-weight: 700;
+} */
+
+#about {
+font-weight: 500;
+--color-text: #0c0c0c;
+
+
+}
+
+#work {
+font-weight: 1000;
+
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+  padding-top: 15vh;
+}
+
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-bottom:5%;
+
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+h1{
+font-family: 'Catamaran';
+font-size: 35px;
+padding-bottom: 0;
+margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom:5%;
+
+}
+
+}
+
+</style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="masternav">
+            <div class="topnav">
+                <span class="logo">
+                    <!--				<a href="index.html"><img src="img/logo.png" alt="Victor Ng Logo" width='50'></a>-->
+                    <a href="default.html">
+                        <!--					Victor Ng-->
+                        <!--
+                        <img src="img/logo.png" alt="Project" class="logonav">
+                        <img src="img/logo2.png" alt="Project" class="logonav">
+    -->
+                        <figure class="swap-on-hover">
+                            <img class="swap-on-hover__front-image" src="img/logo.png" />
+                            <img class="swap-on-hover__back-image" src="img/logo2.png" />
+                        </figure>
+                    </a>
+    
+                </span>
+            </div>
+    
+            <div class="topnavright">
+                <div class="navlinks">
+                    <a href="default.html" id="work">WORK</a>
+                    <a href="about.html" id="about">ABOUT</a>
+                    <a href="https://www.ngvictor.com/Victor Ng - Resume.pdf" target="_blank" id="about">RESUME</a>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Header -->
+<div class="header" id="myHeader">
+  <h1>Part-time Potter</h1>
+  <p>Currently throwing pots in the backyard.</p>
+</div>
+
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+  
+    <img src="Pots/19.jpg" style="width:100%">
+    <img src="Pots/11.jpg" style="width:100%">
+    <img src="Pots/13.jpg" style="width:100%">
+    <img src="Pots/15.jpg" style="width:100%">
+    <img src="Pots/17.jpg" style="width:100%">
+
+  </div>
+  <div class="column">
+    <img src="Pots/1.jpg" style="width:100%">
+    <img src="Pots/12.jpg" style="width:100%">
+    <img src="Pots/14.jpg" style="width:100%">
+    <img src="Pots/16.jpg" style="width:100%">
+    <img src="Pots/18.jpg" style="width:100%">
+
+  </div>  
+
+</div>
+
+
+
+</body>
+</html>

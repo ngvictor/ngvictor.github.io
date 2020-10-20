@@ -1,0 +1,928 @@
+<style > @font-face {
+	/*
+	font-family: motiva-sans, sans-serif;
+	font-weight: 200;
+*/
+	font-family: 'Catamaran', sans-serif;
+	font-family: 'Rubik', sans-serif;
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'IBM Plex Sans', sans-serif;
+
+}
+
+@font-face {
+	font-family: 'navigoregular';
+	src: url('font/navigo-regular-webfont.woff2') format('woff2'),
+		url('font/navigo-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+@font-face {
+	font-family: 'navigolight';
+	src: url('font/navigo-light-webfont.woff2') format('woff2'),
+		url('font/navigo-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'navigobold';
+	src: url('font/navigo-bold-webfont.woff2') format('woff2'),
+		url('font/navigo-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'relativebold';
+	src: url('font/relative-bold-webfont.woff2') format('woff2'),
+		url('font/relative-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'relativebook';
+	src: url('font/relative-book-webfont.woff2') format('woff2'),
+		url('font/relative-book-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'relativemedium';
+	src: url('font/relative-medium-webfont.woff2') format('woff2'),
+		url('font/relative-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+html,
+body {
+	margin: 0px;
+	padding: 0px;
+	/*	background-color: #232323;*/
+	/*	background-color: #333333;*/
+	/*		background-color: #0b6e4f;*/
+	font-family: 'IBM Plex Sans', sans-serif;
+/*		font-family: 'Rubik', sans-serif;*/
+	font-weight: 300;
+color: black;
+color:	#303030;
+background-color: #F9F9F9;
+	overflow-X: hidden;
+	/*	scroll-behavior: auto;*/
+}
+
+footer{
+	margin: 50px; 
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -150px;
+    visibility: hidden;
+}
+
+/*
+TOP NAV FIXED 
+*/
+
+.masternav {
+	font-family: 'Catamaran', sans-serif;
+}
+
+.topnav {
+
+position: fixed;
+	left: 0px;
+
+	/*  align-items: stretch;*/
+	font-size: 1.5em;
+	margin-top: 3%;
+	margin-left: 5%;
+
+	z-index: 2;
+	letter-spacing: 1.5px;
+}
+
+.navlinks a {
+	margin-right: 1em;
+}
+
+.topnavright {
+
+	/*		justify-content: flex-end;*/
+	/*		flex-wrap: nowrap;*/
+	position: fixed;
+	right: 0px;
+	font-size: 1.5em;
+	margin-top: 5%;
+	margin-right: 5%;
+	z-index: 2;
+	letter-spacing: 1.5px;
+
+	/*  align-items: stretch;*/
+}
+
+#about {
+	margin: 0px;
+	padding: 0px;
+}
+
+.stickynav {
+	color:lightgray;
+	position: fixed;
+	flex-direction: row;
+	left: -150px;
+	font-size: 1.2em;
+	margin-top: 20vh;
+	margin-left: 5%;
+	z-index: 2;
+	letter-spacing: 3px;
+	line-height: 100%;
+	transition: ease-out .7s; 
+	text-align: right;
+}
+
+.stickynavleft a{
+	color:lightgray;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+
+}
+
+.stickynavleft a:hover{
+	color:green;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+/* Make the container relative */
+.swap-on-hover {
+  position: relative;	
+/*	margin:  0 auto;*/
+/*	max-width: 10%;*/
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover img {
+  position: absolute;
+
+overflow: hidden;
+	/* Sets the width and height for the images*/
+	width:45px;
+}
+
+
+.swap-on-hover .swap-on-hover__front-image {
+  z-index: 9999;
+  transition: opacity .3s ease-out;
+  cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover:hover > .swap-on-hover__front-image{
+  opacity: 0;
+}
+.stickynav:hover{
+	transform: translateX(80px);
+}
+
+.smol{
+	font-size: 1em;
+}
+
+button {
+  z-index: 1;
+  position: relative;
+	flex-direction: row;
+	word-wrap: break-word;
+	flex-wrap: nowrap;
+	font-size: 1em;
+  color: darkgray;
+/*  padding: 0.5em 1em;*/
+
+	margin: 0;
+	padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+letter-spacing: 1px;
+	  transition: color 0.6s ease-in-out;
+		font-family: 'IBM Plex Mono', monospace;
+	font-weight: 300;
+}
+
+small{
+	font-size: .8em;
+}
+
+button::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #03C598;
+  transform-origin: center right;
+  transform: scaleX(0);
+  transition: transform 0.25s ease-in-out;
+		font-family: 'IBM Plex Mono', monospace;
+	font-weight: 300;
+}
+
+button:hover {
+	  transition: transform 0.25s ease-in-out;
+  	cursor: pointer;
+	color:navy;
+	  transition: color 0.3s ease-in-out;
+
+
+}
+
+button:hover::before {
+
+  transform-origin: center left;
+  transform: scaleX(1.00);
+}
+
+/*header nav*/
+h6 {
+/*	font-family: 'IBM Plex Mono', monospace;*/
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	margin-left: .5rem;
+	letter-spacing: .1px;
+	font-size: .7em;
+/*line-height: 0;*/
+
+}
+
+h5 {
+/*	font-family: 'IBM Plex Mono', monospace;*/
+	margin: 0;
+	padding: 0;
+	margin-top:10px;
+
+	font-size: .75em;
+/*line-height: 0;*/
+
+}
+
+/* Style the links inside the navigation bar */
+.topnavright a {
+	color: #6D6E71;
+	/*	text-align: center;*/
+	/*	padding: 14px 20px;*/
+	text-decoration: none;
+	font-size: .7em;
+	font-weight: 550;
+
+}
+
+.topnav a {
+	color: #6D6E71;
+	/*	text-align: center;*/
+	/*	padding: 14px 20px;*/
+	text-decoration: none;
+	font-weight: 600;
+}
+
+/* Change the color of links on hover */
+.navlinks a:hover {
+	color: #18CC61;
+	font-weight: 700;
+
+}
+
+.logo a:hover {
+	color: #18CC61;
+	font-weight: 700;
+}
+
+#about {
+	font-weight: 500;
+
+}
+
+#work {
+/*	color: #18CC61;*/
+	font-weight: 500;
+
+}
+
+
+img {
+	width: 100%;
+	height: auto;
+	margin: 0;
+/*			max-width: 45rem;*/
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+
+.grid-row {
+	display: flex;
+	margin: 0;
+	width: 100%;
+/*	align-items: center;*/
+	flex-direction: row;
+}
+
+.hero{
+	margin-bottom: 1.5%;
+}
+.sidebyside {
+	display: flex;  
+	flex-wrap: wrap;
+/*	display: block;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+
+	max-width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	align-items: flex-start;
+}
+.sidebyside2 {
+	display: flex;  
+	flex-wrap: wrap;
+/*	display: block;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+
+	max-width: 45rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	align-items: flex-start;
+}
+
+.sidebyside3 {
+	display: flex;  
+	flex-wrap: wrap;
+/*	display: block;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+
+	max-width: 70rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	align-items: flex-start;
+}
+
+.single{
+	display: flex;  
+	flex-wrap: wrap;
+/*	display: block;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+	width: calc((100% - 4rem));
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	align-items: flex-start;
+}
+.singlenonetop{
+		margin-top: 0rem;
+
+	
+}
+.projectdescription {
+/*
+	margin-top: 20vh;
+	margin-bottom: 3vh;
+*/
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.zoom:hover{
+		zoom:1;
+		-webkit-transition: all .8s ease-in-out;
+	box-shadow: .5px .5px 25px 2px darkgray;
+
+	transition: all 1.2s ease;
+		transform: scale(1.8) rotate(0deg);
+}
+
+.zoom{
+		transition: all .8s ease;
+box-shadow: .5px .5px 15px .1px #CECECE;
+}
+
+.shadow{
+		transition: all .8s ease;
+box-shadow: .5px .5px 15px .1px #CECECE;
+}
+
+.one-of-2 {
+	width: 50%;
+/*	margin-top: 1rem;*/
+/*	margin-bottom: 1rem;		*/
+}
+
+/*
+.one-of-2 b{
+	margin-bottom: 1rem;
+}
+*/
+
+.one-of-3{
+	width:33%
+}
+
+.two-of-3{
+	width:66%
+}
+
+.tools{
+/*	margin-top: 1rem;*/
+padding-left: auto;
+margin-left: 2%;
+text-align: right;
+margin-right: 0;
+	padding-right: 0;
+	width: 28%;
+	margin-bottom: 0;
+	margin-bottom: 0;
+/*	padding: 0;*/
+	font-size: 1.05em;
+	letter-spacing: .2px;
+}
+
+.space{
+	margin-top: 3em;
+}
+
+.tools p{
+}
+
+.content-start{
+	align-items: flex-start;
+}
+
+h1 {
+	max-width: 50rem;
+	font-size: 2rem;
+	margin: 0;
+		font-weight: 600;
+
+}
+
+h3 {
+	max-width: 40rem;
+	font-size: 1.3rem;
+	text-decoration: none;
+	font-weight: 500;
+	margin-bottom: 1rem;
+		margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+
+.sub{
+	font-size: 1.55rem;
+	margin-top: 2rem;
+		margin-bottom: 0rem;
+	max-width: 40rem;
+	width:100%;
+	font-weight: 500;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.herotext{
+	letter-spacing: .02rem;
+		font-size: 1.37rem;
+font-weight: 300;
+	line-height: 2.2rem;
+}
+
+.minor{
+	max-width: 40rem;
+}
+
+h2{
+	max-width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+	margin-top: 3rem;
+	margin-bottom: 1rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+	color:#002A20;
+/*	margin-left: auto;*/
+/*margin-right: auto;*/
+}
+
+b{
+		font-weight: 600;
+
+}
+
+p{
+	max-width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+/*	height:50%;*/
+/*	margin: 0;*/
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+/*	padding: 0;*/
+	font-size: 1.1em;
+	letter-spacing: .4px;
+	line-height: 1.75rem;
+/*		line-height: rem;*/
+
+}
+p a{
+	
+		font-weight: 600;
+color: orange;
+text-decoration-style: wavy;
+text-decoration-color: #18CC61;
+
+}
+h7 a{
+	
+	font-weight: 500;
+color: orange;
+text-decoration-style: wavy;
+text-decoration-color: #18CC61;
+
+}
+h4{
+	color: gray;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 400;
+	font-size: 1.2em;
+	width:100%;
+}
+h4 a{
+	
+font-weight: 600;
+color: orange;
+text-decoration-style: wavy;
+text-decoration-color: #18CC61;
+
+}
+/*h7 is lists*/
+h7{
+		margin-top: 2.25rem;
+	margin-bottom: .25rem;
+	max-width: 40rem;
+	font-size: 1.2em;
+	font-weight: 500;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 1.5rem;
+
+}
+h8{
+			margin-top: 1.125rem;
+	margin-bottom: .25rem;
+	max-width: 45rem;
+	font-size: 1.5em;
+	font-weight: 500;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.title{
+	max-width: 45rem;
+	width:100%;
+	margin-top: 1rem;
+	font-weight: 800;
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 1.15rem;
+	color:navy;
+/*	font-weight: 300;*/
+}
+
+.proto{
+	max-width: 250px;
+	max-height:490px;
+	margin: 2em auto 1em auto;
+	width:100%;
+}
+
+.context{
+	width:70%;
+
+/*	padding: 0;*/
+	font-size: 1.05em;
+	letter-spacing: .2px;
+}
+
+.context a{
+	text-decoration: none;
+color:#03C598;
+font-weight: 500;
+}
+
+.context2{
+	width:100%;
+
+/*	padding: 0;*/
+/*	font-size: 1.05em;*/
+	letter-spacing: .2px;
+}
+
+.context3{
+	width:48%;
+/*	padding: 0;*/
+	font-size: 1.05em;
+	letter-spacing: .2px;
+	padding-right: 4%;
+}
+
+.context3 p{
+	max-width: 40rem;
+	
+	margin: 0;
+		margin-top: 1rem;
+	margin-bottom: 1rem;
+
+		padding: 0;
+}
+.context4{
+	width:48%;
+/*	padding: 0;*/
+	font-size: 1.05em;
+	letter-spacing: .2px;
+}
+
+.context4 p{
+	max-width: 45rem;
+	
+	margin: 0;
+		margin-top: 1rem;
+	margin-bottom: 1rem;
+
+		padding: 0;
+}
+
+.context2 p{
+	max-width: 45rem;
+	
+	margin: 0;
+		margin-top: 1rem;
+	margin-bottom: 1rem;
+
+		padding: 0;
+}
+
+.context5{
+max-width:35rem;
+width:100%;
+
+	margin-right: auto;
+		margin-left: auto;
+
+margin-bottom: 3rem;
+
+}
+.context6{
+	width: 45%;
+	margin-bottom:4rem;
+	max-width: 45rem;
+	padding-left:3rem;
+	align-self: center;
+		margin-right: auto;
+		margin-left: auto;
+
+}
+
+video{
+	margin-top: 2rem;
+	width:100%;
+		margin-right: auto;
+		margin-left: auto;
+}
+
+.imgwider{
+	max-width: 55em;
+/*box-shadow:10px 10px 20px 10px rgba(0, 0, 0, .5);*/
+}
+
+.imgnormal{
+	max-width: 45em;
+}
+
+.topbottompic{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+.caption{
+	margin-bottom: 1rem;
+}
+.quote{
+	width:45%;
+	margin-left: 20%;
+		margin-right: 25%;
+
+}
+
+.smallpic{
+max-width: 40rem;
+}
+
+.smallpicshadow{
+max-width: 45rem;
+box-shadow: .5px .5px 15px .1px #CECECE;
+
+}
+
+li{
+margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+ul{
+	max-width: 35rem;
+margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+		font-size: 1.125em;
+	letter-spacing: .2px;
+}
+strong{
+	font-weight: 300;
+/*	background: linear-gradient(transparent 10%,#e6ffe6 80%,transparent 10%);*/
+		background: linear-gradient(transparent 10%,#b4fdec 80%,transparent 10%);
+
+}
+centerproto{
+	padding-right: 50%;
+	padding-left: 50%;
+}
+
+.narrow{
+	max-width: 30rem;
+		margin-left: auto;
+	margin-right: auto;
+	padding-left: 50px;
+		padding-right: 50px;
+	margin-top: 1rem;
+		margin-bottom: 1rem;
+}
+
+.threequestions h7{
+	margin-top:1rem;
+	margin-bottom: 1rem;
+	font-weight: 400;
+}
+
+.listlist h7{
+	font-weight: 500;
+/*
+	text-decoration: underline;
+text-decoration-style: wavy;
+text-decoration-color: #18CC61;
+*/
+}
+.smallicon{
+	max-width: 70px;
+	margin-top: 2rem;
+	margin-bottom: -.5rem;
+	width: 100%;
+}
+
+footer{
+		max-width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+	margin-bottom: 0;
+	padding-top:5rem;
+	padding-bottom: 2rem;
+/*	height:50%;*/
+/*	margin: 0;*/
+	font-size: 1.125em;
+	letter-spacing: .2px;
+/*	line-height: 2rem;*/
+/*		line-height: rem;*/
+text-align: center;
+	
+}
+
+footer a{
+		margin-top:5rem;
+	margin-bottom: 2rem;
+		font-weight: 600;
+color: navy;
+text-decoration-style: wavy;
+text-decoration-color: #18CC61;
+
+}
+@keyframes slideInFromY {
+	0% {
+		transform: translateY(120px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+.appear {
+
+		animation: 1.5s ease-out 0s 1 slideInFromY;
+
+}
+
+@media only screen and (max-width: 700px) {
+	.masternav {
+		position: fixed;
+		background: black;
+		height: 9%;
+		left: 0px;
+		right: 0px;
+
+		z-index: 2;
+	}
+	
+	.topnav {
+	position: fixed;
+	left: 0px;
+
+	/*  align-items: stretch;*/
+	font-size: 1.5em;
+	margin-top: -1%;
+	margin-left: 1%;
+
+	z-index: 2;
+	letter-spacing: 1.5px;
+}
+	
+		.hero{
+    margin:auto;
+			margin-top: 25%;
+   width: 100%;
+    height: 30vh;
+    display: block;
+	}
+	
+	.hero img{
+		margin:auto;
+		margin-top: 25%;
+   width: 100%;
+    height: auto;
+    display: block;
+	}
+	button {
+		display:none;
+	}
+	
+	body{
+		margin-left: 25px;
+		margin-right:25px;
+	}
+	
+	.context6{
+		width:100%;
+	}
+}
+
+</style >
