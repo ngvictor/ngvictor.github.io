@@ -1,0 +1,536 @@
+<style > 
+@font-face {
+
+	font-family: 'Catamaran', sans-serif;
+}
+
+@font-face {
+	font-family: 'navigoregular';
+	src: url('font/navigo-regular-webfont.woff2') format('woff2'),
+		url('font/navigo-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+@font-face {
+	font-family: 'navigolight';
+	src: url('font/navigo-light-webfont.woff2') format('woff2'),
+		url('font/navigo-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'navigobold';
+	src: url('font/navigo-bold-webfont.woff2') format('woff2'),
+		url('font/navigo-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'relativebold';
+	src: url('font/relative-bold-webfont.woff2') format('woff2'),
+		url('font/relative-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'relativebook';
+	src: url('font/relative-book-webfont.woff2') format('woff2'),
+		url('font/relative-book-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'relativemedium';
+	src: url('font/relative-medium-webfont.woff2') format('woff2'),
+		url('font/relative-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+body {
+  --color-bg: #faebd7;
+  --color-text: #24221f;
+  --color-link: #18CC61;
+  --color-link-hover: #18CC61;
+  font-family: 'Catamaran', sans-serif;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+.frame {
+  color: #a5271b;
+  font-weight: 500;
+}
+
+.frame__title,
+.frame {
+  /* font-size: 1.3rem; */
+}
+/*
+TOP NAV FIXED 
+*/
+
+.topnav {
+
+	position: fixed;
+	left: 0px;
+
+	/*  align-items: stretch;*/
+	font-size: 1.5em;
+	margin-top: 3%;
+	margin-left: 5%;
+
+	z-index: 2;
+  letter-spacing: 1.5px;
+  font-family: 'Catamaran', sans-serif;
+
+}
+
+.bottomnav {
+
+  position: fixed;
+  top:0px;
+	right: 0px;
+	/*  align-items: stretch;*/
+	font-size: 1em;
+  margin-top: 6.5%;
+  margin-right:5%;
+  line-height: 1.2rem;
+text-align: right;
+	z-index: 2;
+  letter-spacing: 1.5px;
+  font-family: 'Catamaran', sans-serif;
+font-weight: 600;
+color:gray;
+
+}
+
+.topnavright {
+
+	/*		justify-content: flex-end;*/
+	/*		flex-wrap: nowrap;*/
+	position: fixed;
+	right: 0px;
+	font-size: 1.5em;
+	margin-top: 5%;
+	margin-right: 5%;
+	z-index: 2;
+  letter-spacing: 1.5px;
+  /* font-family: 'Catamaran', sans-serif; */
+  font-weight: 400;
+
+
+	/*  align-items: stretch;*/
+}
+
+.logo {
+	/*		flex-grow: 1;*/
+	/*		margin-right: auto;*/
+	display: inline-block;
+
+}
+
+.navlinks a {
+	/*	padding-left: 25%;*/
+	/*	align-self: flex-end;*/
+	/*
+	align-items: center;
+	align-content: center;
+*/
+	margin-left: 1em;
+}
+
+
+/* Style the links inside the navigation bar */
+.topnavright a {
+	color: #3D3D3D;
+	/*	color: #6D6E71;*/
+	/*	text-align: center;*/
+	/*	padding: 14px 20px;*/
+	text-decoration: none;
+  font-size: .7em;
+  /* font-weight: 700; */
+
+}
+
+/* Make the container relative */
+.swap-on-hover {
+	position: relative;
+	/*	margin:  0 auto;*/
+	/*	max-width: 10%;*/
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover img {
+	position: absolute;
+
+	overflow: hidden;
+	/* Sets the width and height for the images*/
+	width: 45px;
+}
+
+
+.swap-on-hover .swap-on-hover__front-image {
+	z-index: 9999;
+	transition: opacity .3s ease-out;
+	cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover:hover > .swap-on-hover__front-image {
+	opacity: 0;
+}
+
+.logonav {
+	width: 10%;
+}
+
+.topnav a {
+	/*	color: #6D6E71;*/
+	color: #C2C2C2;
+	/*	text-align: center;*/
+	/*	padding: 14px 20px;*/
+	text-decoration: none;
+
+}
+
+/* Change the color of links on hover */
+.navlinks a:hover {
+	color: #18CC61;
+	/* font-weight: 700; */
+	font-family: 'Catamaran', sans-serif;
+
+}
+
+/* .logo a:hover {
+	display: inline-block;
+	color: #18CC61;
+	font-weight: 700;
+} */
+
+#about {
+	font-weight: 700;
+	color: #18CC61;
+}
+
+#work {
+	/* color: #18CC61; */
+  /* font-weight: 1000; */
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 600;
+
+}
+
+#resume{
+	font-family: 'Catamaran', sans-serif;
+	font-weight: 600;
+
+}
+
+.content__headline {
+  font-size: 2.5rem;
+  margin: 3rem auto 2rem;
+  padding-left: 3rem;
+  padding-right:3rem;  
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.content__type {
+  font-size: 1.3vw;
+  margin: 3rem auto 2rem;
+  padding-left: 3rem;
+  padding-right:3rem;
+  line-height: 1.25;
+  /* font-family: halyard-display, sans-serif; */
+  font-weight: 400;
+  backface-visibility: hidden;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+  background-size: 80%;
+}
+
+.content__img {
+  max-width: 100%;
+  max-height:50vh;
+  display: block;
+  margin: 0 auto 5rem;
+  backface-visibility: hidden;
+}
+
+/* Effect Styles */
+
+.folds {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.fold-3d {
+  position: absolute;
+  left: 0;
+  right: 0;
+  perspective: 100vh;
+  transform-style: preserve-3d;
+}
+
+.fold-3d-top {
+  bottom: 100%;
+  perspective-origin: 50% 100%;
+}
+.fold-3d-bottom {
+  top: 100%;
+  /* Origin at the top of the bottom wrapper, the bottom of the center fold. */
+  perspective-origin: 50% 0%;
+}
+.debug .fold-top {
+  background: #dadada;
+}
+.debug .fold-bottom {
+  background: #dadada;
+}
+.debug .test-center {
+  background: #bababa;
+}
+.fold-bottom {
+  height: 60vh;
+  width: 100%;
+  /* background: #ff000090; */
+  transform-origin: top center;
+}
+.fold-top {
+  height: 60vh;
+  width: 100%;
+  /* background: #ff000090; */
+  transform-origin: bottom center;
+}
+.fold-top .fold-scroller {
+  transform-origin: top center;
+}
+.fold-bottom .fold-scroller {
+  transform-origin: top center;
+}
+.fold-center {
+  height: 60vh;
+  width: 60vw;
+}
+
+.fold {
+  overflow: hidden;
+  //border: 1px solid #000;
+  border-top: 0;
+  border-bottom: 0;
+}
+.fold-scroller {
+  display: fixed;
+  flex-direction: column;
+}
+
+.fold-content {
+  padding: 0 2rem;
+}
+
+.companylinks{
+	color: #18CC61;
+
+/*
+	-webkit-text-stroke-width: .8px;
+	-webkit-text-stroke-color: lightgray;	font-weight: 600;
+*/
+	font-weight: 500;
+	text-decoration: none;
+	outline-color: darkgreen;
+	outline-style: inherit;
+	outline: inherit;
+	outline-width: thin;
+}
+
+.resume{
+  /*display: wrap;*/
+    text-decoration: none;
+      color: #18CC61;
+  font-size: 2rem;
+    transition: .5s;
+    font-weight: 600;
+
+      width:50%;
+    text-align: center;
+  }
+  
+  .resume:hover{
+    text-decoration: none;
+      color: #18CC61;
+    font-weight: 600;
+  /*margin-right: 35%;*/
+    background: black;
+    transition: .5s;
+  }
+
+#wrap{
+	display: inline;
+	position: fixed;
+	margin-top: 15vh;
+	margin-left: 15%;
+	margin-right: 50%;
+	opacity: 0;
+	-webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none;
+}
+
+.Listitem{
+	color: #F8F8F8;
+	margin-left: 10%;
+	text-decoration: underline;
+	text-decoration-color: #18CC61;
+	text-decoration-style: wavy;
+  font-size: 1.7vw;
+  margin: 3rem auto 2rem;
+  padding-left: 5rem;
+  padding-right:5rem;
+  line-height: 1.25;
+/*
+	-webkit-text-stroke-width: .5px;
+	-webkit-text-stroke-color: white;
+*/
+}
+
+.Listitem:hover{
+		color:darkorange;
+}
+
+#firstImg{
+	width: 180%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+/*	padding-bot	tom: 30%;*/
+/*	padding-left: 10%;*/
+/*	transition:1s;*/
+}
+
+#secondImg{
+	width: 90%;
+	height: auto;
+/*	padding-left: 10%;*/
+	transition:1s;
+}
+
+.masterresume{
+	display: flex;
+	margin-bottom: 2rem;
+	margin-top: 2rem;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .content__headline {
+    font-size: 3rem;
+    padding-left: 1rem;
+    padding-right:1rem;  font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .content__type {
+    font-size: 3.5vw;
+    padding-left: 0rem;
+    padding-right:0rem;
+    margin:0;
+    line-height: 1.25;
+    /* font-family: halyard-display, sans-serif; */
+    font-weight: 400;
+    backface-visibility: hidden;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+    background-size: 80%;
+  }
+
+	.masternav {
+		position: fixed;
+		background: black;
+		height: 9%;
+		left: 0px;
+		right: 0px;
+
+		z-index: 2;
+	}
+
+	.topnav {
+	position: fixed;
+	left: 0px;
+
+	/*  align-items: stretch;*/
+	font-size: 1.5em;
+	margin-top: -1%;
+	margin-left: 1%;
+
+	z-index: 2;
+	letter-spacing: 1.5px;
+}
+
+	#herocontainer {
+		/*		overflow: hidden;*/
+		padding-top: 15%;
+		padding-bottom: 35%;
+
+		padding-right: 15%;
+		padding-left: 15%;
+	}
+
+	.homepagename {
+		/*			justify-content: center;*/
+		/*		position: absolute;*/
+		padding-right: 5%;
+		padding-left: 5%;
+		padding-top: 10%;
+		color: white;
+	}
+
+	.bottomnav{
+		display: none;
+	}
+
+	.resume{
+		/*display: wrap;*/
+		  text-decoration: none;
+			color: #18CC61;
+		font-size: 1rem;
+		  transition: .5s;
+		  font-weight: 400;
+	  
+			width:50%;
+		  text-align: center;
+		  text-decoration: underline;
+		  text-align: left;
+		}
+}
