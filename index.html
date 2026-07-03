@@ -1448,10 +1448,11 @@
       transition: transform 0.4s var(--ease-out-expo);
     }
 
-    .ceramics__arrow:hover {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: #fff;
+    .ceramics__arrow:hover,
+    .ceramics__card.is-expanded .ceramics__arrow:hover {
+      border-color: var(--olive-soft);
+      background: var(--olive-soft);
+      color: var(--espresso);
     }
 
     .ceramics__arrow:hover svg {
@@ -2204,6 +2205,7 @@
       font-size: 1.05rem;
       letter-spacing: -0.02em;
       color: var(--ink);
+      line-height: 1.15;
       margin-top: 10px;
     }
     .tl-role {
@@ -2211,7 +2213,8 @@
       font-weight: 500;
       font-size: 0.82rem;
       color: var(--ink-muted);
-      margin-top: 3px;
+      line-height: 1.2;
+      margin-top: 2px;
     }
     .tl-desc {
       font-family: var(--sans);
