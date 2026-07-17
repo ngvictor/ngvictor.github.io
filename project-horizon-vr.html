@@ -255,12 +255,7 @@
       font-weight: 400; color: var(--ink); letter-spacing: -0.01em; line-height: 1.15;
       display: block; margin-bottom: 20px;
     }
-    .ba-pair { display: grid; grid-template-columns: 1fr 36px 1fr; gap: 16px; align-items: start; }
-    .ba-arrow {
-      align-self: center; justify-self: center;
-      width: 26px; height: 26px; color: var(--ink-faint);
-    }
-    .ba-arrow svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .ba-chip {
       position: absolute; top: 14px; left: 14px; z-index: 2;
       font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
@@ -273,7 +268,6 @@
     .ba-chip--after { background: var(--accent-gold); color: #ffffff; }
     @media (max-width: 1024px) {
       .ba-pair { grid-template-columns: 1fr; gap: 12px; }
-      .ba-arrow { transform: rotate(90deg); margin: 2px 0; }
     }
     .media-cell { display: flex; flex-direction: column; }
 
@@ -419,7 +413,7 @@
       <div class="gallery__head">
         <span class="gallery__label">In VR</span>
         <h2 class="gallery__title">Three early prototypes</h2>
-        <p class="gallery__lead">Built in the headset while I was learning to prototype in VR.</p>
+        <p class="gallery__lead">Early, rough prototypes built in the headset while I was learning the medium, just to test how flat screens feel inside a 3D environment.</p>
       </div>
 
       <div class="media-row media-row--3">
@@ -490,9 +484,6 @@
               </div>
               <p class="media-caption">Entry points were scattered across surfaces, and the audience had no home before the event.</p>
             </div>
-            <div class="ba-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </div>
             <div class="media-cell">
               <div class="media-container media-container--tall">
                 <span class="ba-chip ba-chip--after">After</span>
@@ -514,9 +505,6 @@
               </div>
               <p class="media-caption">Live and Events sat in separate tools, entry points were hidden, and there was no central place for insights.</p>
             </div>
-            <div class="ba-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </div>
             <div class="media-cell">
               <div class="media-container media-container--tall">
                 <span class="ba-chip ba-chip--after">After</span>
@@ -537,9 +525,6 @@
                 <img src="assets/images/projects/horizon-vr/horizon-vr-before-studio-01.webp" alt="Before: going live meant a basic webcam broadcast setup form" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <p class="media-caption">Going live was overwhelming, with no guidance and no support in the moment.</p>
-            </div>
-            <div class="ba-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </div>
             <div class="media-cell">
               <div class="media-container media-container--tall">
