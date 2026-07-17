@@ -128,12 +128,16 @@
     }
     .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
     .hero-bg img, .hero-bg video { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(8,12,18,0.30) 0%, rgba(8,12,18,0.42) 55%, rgba(8,12,18,0.78) 100%);
+    }
     .hero-content { position: relative; z-index: 1; padding: 0 48px 64px; max-width: var(--content-max); margin: 0 auto; width: 100%; }
     .hero-content__left { flex: 1; min-width: 0; }
 
     .cs-hero__title {
       font-family: var(--serif); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.05;
-      font-weight: 400; color: #ffffff; letter-spacing: -0.03em; max-width: 900px; margin-bottom: 20px;
+      font-weight: 400; color: #ffffff; letter-spacing: -0.03em; max-width: none; margin-bottom: 20px;
     }
     .cs-hero__tldr {
       font-family: var(--sans); font-size: clamp(1.125rem, 2vw, 1.375rem); font-weight: 400;
@@ -165,22 +169,6 @@
     .lookbook-note span { color: var(--ink-muted); }
 
     /* ========================================
-       STAT STRIP — a few high-level numbers
-       ======================================== */
-    .stat-strip {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
-      max-width: var(--content-max); margin: 0 auto 110px;
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 44px 0;
-    }
-    .stat { display: flex; flex-direction: column; gap: 8px; }
-    .stat__num { font-family: var(--serif); font-size: clamp(2.25rem, 4vw, 3rem); line-height: 1; color: var(--accent-gold); letter-spacing: -0.01em; }
-    .stat__label { font-family: var(--sans); font-size: 0.9rem; color: var(--ink-secondary); line-height: 1.5; }
-    @media (max-width: 768px) {
-      .stat-strip { grid-template-columns: 1fr 1fr; gap: 28px 24px; margin-bottom: 80px; padding: 36px 0; }
-    }
-
-    /* ========================================
        SCROLL PROGRESS
        ======================================== */
     .scroll-progress { position: fixed; top: 0; right: 0; width: 5px; height: 100vh; z-index: 200; pointer-events: none; background: rgba(0,0,0,0.05); }
@@ -199,9 +187,9 @@
       font-family: var(--serif); font-size: clamp(1.875rem, 3.2vw, 2.75rem); line-height: 1.1;
       font-weight: 400; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 14px;
     }
-    .gallery__lead { font-family: var(--sans); font-size: 1.0625rem; color: var(--ink-secondary); line-height: 1.6; }
+    .gallery__lead { font-family: var(--sans); font-size: clamp(1.25rem, 2vw, 1.5rem); color: var(--ink-secondary); line-height: 1.55; }
 
-    .stack { display: flex; flex-direction: column; gap: 24px; }
+    .stack { display: flex; flex-direction: column; gap: 44px; }
 
     /* ========================================
        MEDIA
@@ -225,14 +213,75 @@
     }
 
     .media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .media-row--3 { grid-template-columns: repeat(3, 1fr); }
     .media-row--4 { grid-template-columns: repeat(2, 1fr); }
+    .media-container--square { aspect-ratio: 1/1; }
+
+    /* Prototype chart — three phases, video + spec rows per column */
+    .proto-col__kicker {
+      font-family: var(--sans); font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-gold);
+      display: block; margin-bottom: 6px;
+    }
+    .proto-col__title { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+    .proto-list { list-style: none; margin: 14px 0 0; }
+    .proto-list li {
+      padding: 10px 2px; border-top: 1px solid var(--border);
+      font-family: var(--sans); font-size: 0.9rem; color: var(--ink-secondary); line-height: 1.5;
+    }
+
+    /* Studio composition — setup card layered over the Event Studio shot */
+    .studio-compo { background: var(--surface-card); }
+    .studio-compo__shot {
+      position: absolute; right: 4%; bottom: 8%; width: 74%;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+      z-index: 1;
+    }
+    .studio-compo__card {
+      position: absolute; left: 5%; top: 9%; width: 24%;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+      z-index: 2;
+    }
+
+    /* ========================================
+       BEFORE / AFTER PAIR
+       ======================================== */
+    .ba-name {
+      font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 400; color: var(--ink); letter-spacing: -0.01em; line-height: 1.15;
+      display: block; margin-bottom: 20px;
+    }
+    .ba-pair { display: grid; grid-template-columns: 1fr 36px 1fr; gap: 16px; align-items: start; }
+    .ba-arrow {
+      align-self: center; justify-self: center;
+      width: 26px; height: 26px; color: var(--ink-faint);
+    }
+    .ba-arrow svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ba-chip {
+      position: absolute; top: 14px; left: 14px; z-index: 2;
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 13px; border-radius: 999px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+    .ba-chip--before { background: rgba(26,24,20,0.62); color: rgba(255,255,255,0.92); }
+    .ba-chip--after { background: var(--accent-gold); color: #ffffff; }
+    @media (max-width: 1024px) {
+      .ba-pair { grid-template-columns: 1fr; gap: 12px; }
+      .ba-arrow { transform: rotate(90deg); margin: 2px 0; }
+    }
     .media-cell { display: flex; flex-direction: column; }
 
     /* ========================================
        CTA BAND — present in full on request
        ======================================== */
     .cta-band {
-      position: relative; left: 50%; transform: translateX(-50%); width: 100vw;
+      position: relative; width: 100%;
       background: #0e1f18; color: #fff; padding: 100px 48px; margin: 0 0 0;
       text-align: center;
     }
@@ -260,7 +309,7 @@
        RESPONSIVE
        ======================================== */
     @media (max-width: 1024px) {
-      .media-row, .media-row--4 { grid-template-columns: 1fr; }
+      .media-row, .media-row--3, .media-row--4 { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       .case-wrapper { padding: calc(var(--header-height) + 40px) 24px 80px; }
@@ -305,7 +354,9 @@
          ============================================ -->
     <div class="hero-stage" id="heroStage">
       <header class="hero-sticky" id="heroSticky">
-        <div class="hero-bg" style="background: linear-gradient(165deg, #12283a 0%, #0c141c 55%, #0a0a0a 100%);"></div>
+        <div class="hero-bg" style="background: #22303f;">
+          <img src="assets/images/projects/horizon-vr/horizon-vr-hero-01.png" alt="" aria-hidden="true">
+        </div>
         <div class="hero-content">
           <div class="hero-content__left">
             <h1 class="cs-hero__title">Reinventing work events in VR</h1>
@@ -316,7 +367,7 @@
           <div class="metadata-matrix">
             <div class="meta-item">
               <span class="meta-item__label">Role</span>
-              <span class="meta-item__value">Product Designer, audience &amp; presenter experience</span>
+              <span class="meta-item__value">Hybrid Designer, 2D + VR</span>
             </div>
             <div class="meta-item">
               <span class="meta-item__label">Medium</span>
@@ -326,213 +377,93 @@
               <span class="meta-item__label">Status</span>
               <span class="meta-item__value">Product vision</span>
             </div>
-            <div class="meta-item">
-              <span class="meta-item__label">Access</span>
-              <span class="meta-item__value">Full case study on request</span>
-            </div>
           </div>
         </div>
       </header>
 
-      <div class="hero-reveal">
-        <section class="media-container media-container--wide">
-          <div class="media-placeholder">
-            <span class="media-placeholder__id">Render · Hero</span>
-            <span class="media-placeholder__desc">Attendees mingling at a cocktail table in a VR social lounge, mountain skybox, shared props.</span>
-          </div>
-          <!-- asset: assets/images/projects/horizon-vr/horizon-vr-hero-01.jpg -->
-        </section>
-      </div>
     </div>
 
     <!-- ============================================
          FRAMING LINE
          ============================================ -->
     <p class="lookbook-note fade-up">
-      A high-level look at the work. <span>I can present the full project, the research, the decisions and the trade-offs, on request.</span>
+      A high-level look at the work. <span>The full project is presented live, upon request.</span>
     </p>
 
     <!-- ============================================
-         STAT STRIP — high-level, anonymized
+         BACKGROUND — how this came about
          ============================================ -->
-    <div class="stat-strip fade-up" aria-label="At a glance">
-      <div class="stat">
-        <span class="stat__num">26%</span>
-        <span class="stat__label">Drop in cross-team connection when work went hybrid, the problem this set out to fix</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num">15&ndash;20%</span>
-        <span class="stat__label">Projected cut in event cost versus flying teams in</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num">4&times;</span>
-        <span class="stat__label">Faster skills training in VR than on a video call</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num">Closed beta</span>
-        <span class="stat__label">The vision was productized into a real Events module</span>
-      </div>
-    </div>
-    <!-- VICTOR: if the team's traction numbers are yours to claim (a teammate published "29 beta partners / 400+ sessions"), they'd be stronger than the case numbers here. Confirm before swapping in. -->
-
-    <!-- ============================================
-         AUDIENCE EXPERIENCE
-         ============================================ -->
-    <section class="gallery fade-up" id="gallery-audience" data-section-label="Audience Experience">
+    <section class="gallery fade-up" id="background" data-section-label="Background">
       <div class="gallery__head">
-        <span class="gallery__label">In VR</span>
-        <h2 class="gallery__title">The audience experience</h2>
-        <p class="gallery__lead">What an attendee lives through, from joining to the conversations afterward.</p>
-      </div>
-
-      <div class="stack">
-
-        <!-- Joining — two 2D surfaces -->
-        <div class="media-row">
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Join</span>
-                <span class="media-placeholder__desc">Calendar invite and event microsite, each with one "Join in VR" button.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-join-01.png -->
-            </div>
-            <p class="media-caption">Joining, where people already are.</p>
-          </div>
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Event page</span>
-                <span class="media-placeholder__desc">2D event page: live room preview, run-of-show, comments and questions.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-event-page-01.png -->
-            </div>
-            <p class="media-caption">A 2D home base before the headset.</p>
-          </div>
-        </div>
-
-        <!-- Pre-event social -->
-        <div class="media-cell">
-          <div class="media-container media-container--full">
-            <div class="media-placeholder">
-              <span class="media-placeholder__id">Pre-event social</span>
-              <span class="media-placeholder__desc">Avatars gathered at a cocktail table, mountain skybox, shared props.</span>
-            </div>
-            <!-- asset: assets/images/projects/horizon-vr/horizon-vr-social-01.jpg -->
-          </div>
-          <p class="media-caption">Warming the room up at small, auto-seated tables.</p>
-        </div>
-
-        <!-- The stage -->
-        <div class="media-cell">
-          <div class="media-container media-container--full">
-            <div class="media-placeholder">
-              <span class="media-placeholder__id">The stage</span>
-              <span class="media-placeholder__desc">Presenter on a circular stage, giant 3D anniversary mark, sculpted terrain, starfield.</span>
-            </div>
-            <!-- asset: assets/images/projects/horizon-vr/horizon-vr-stage-01.jpg -->
-          </div>
-          <p class="media-caption">Arriving on stage together with your table.</p>
-        </div>
-
-        <!-- Immersive content — 4 up -->
-        <div class="media-row media-row--4">
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Immersive slides</span>
-                <span class="media-placeholder__desc">2D slides on floating panels beside a 3D model.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-immersive-01.png -->
-            </div>
-          </div>
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Environment morph</span>
-                <span class="media-placeholder__desc">The room becomes desert dunes with floating specs.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-immersive-02.jpg -->
-            </div>
-          </div>
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Hold the object</span>
-                <span class="media-placeholder__desc">An attendee holds their own copy of a 3D object.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-immersive-03.png -->
-            </div>
-          </div>
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">One big stat</span>
-                <span class="media-placeholder__desc">A forest scene frames a single statistic.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-immersive-04.jpg -->
-            </div>
-          </div>
-        </div>
-        <p class="media-caption">Immersive content: the room re-skins per beat, and any object becomes something you can pick up.</p>
-
-        <!-- Q&A + Post-event -->
-        <div class="media-row">
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Q&amp;A</span>
-                <span class="media-placeholder__desc">A queued attendee teleported on stage with the presenter.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-qa-01.png -->
-            </div>
-            <p class="media-caption">Speaking up, in person, from a queue.</p>
-          </div>
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Post-event</span>
-                <span class="media-placeholder__desc">The group reconvenes in a smaller room, 2D colleagues on a screen.</span>
-              </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-post-event-01.png -->
-            </div>
-            <p class="media-caption">The hallway afterward, kept warm.</p>
-          </div>
-        </div>
-
+        <span class="gallery__label">Background</span>
+        <h2 class="gallery__title">How this came about</h2>
+        <p class="gallery__lead" style="margin-bottom: 14px;">
+          This started with a pivot. I was designing Workplace, Meta's enterprise intranet, when the business moved into the metaverse and our team's roadmap moved with it.
+        </p>
+        <p class="gallery__lead" style="margin-bottom: 14px;">
+          Nobody on the team had designed for VR before, me included. I taught myself to design and prototype in the medium, then ran prototyping sessions to upskill the rest of the team as they made the same jump.
+        </p>
+        <p class="gallery__lead" style="margin-bottom: 14px;">
+          The design work started with research rather than screens. I mapped the presenter's journey and the audience's journey end to end, from the calendar invite to the conversations afterward, and those maps decided where VR adds something real and where 2D should stay.
+        </p>
+        <p class="gallery__lead">
+          The work was presented and demoed live to Andrew Bosworth, Meta's CTO, and senior VPs across Reality Labs.
+        </p>
       </div>
     </section>
 
     <!-- ============================================
-         PRESENTER EXPERIENCE
+         AUDIENCE EXPERIENCE
          ============================================ -->
-    <section class="gallery fade-up" id="gallery-presenter" data-section-label="Presenter Experience">
+    <section class="gallery fade-up" id="gallery-vr" data-section-label="In VR">
       <div class="gallery__head">
         <span class="gallery__label">In VR</span>
-        <h2 class="gallery__title">The presenter experience</h2>
-        <p class="gallery__lead">What a host uses to stay in control and read the room, live in the headset.</p>
+        <h2 class="gallery__title">Three early prototypes</h2>
+        <p class="gallery__lead">Built in the headset while I was learning to prototype in VR.</p>
       </div>
 
-      <div class="media-row">
+      <div class="media-row media-row--3">
         <div class="media-cell">
-          <div class="media-container media-container--tall">
-            <div class="media-placeholder">
-              <span class="media-placeholder__id">Presenter cockpit</span>
-              <span class="media-placeholder__desc">In-VR view: the full audience, notes, the next scene, a backstage support line.</span>
-            </div>
-            <!-- asset: assets/images/projects/horizon-vr/horizon-vr-cockpit-01.png -->
+          <span class="proto-col__kicker">01 &middot; Pre-event</span>
+          <h3 class="proto-col__title">Waiting together</h3>
+          <div class="media-container media-container--square" style="background: #0d141c;">
+            <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+              <source src="assets/videos/projects/horizon-vr/horizon-vr-social-01.mp4" type="video/mp4">
+            </video>
           </div>
-          <p class="media-caption">A cockpit so the presenter is never stranded.</p>
+          <ul class="proto-list">
+            <li>Conversation happens in your pod while you wait</li>
+            <li>Pods are colleagues pre-matched on the people graph</li>
+            <li>Ice-breaker moments keep it natural</li>
+          </ul>
         </div>
         <div class="media-cell">
-          <div class="media-container media-container--tall">
-            <div class="media-placeholder">
-              <span class="media-placeholder__id">Feel the room</span>
-              <span class="media-placeholder__desc">Live reactions float over the audience in real time.</span>
-            </div>
-            <!-- asset: assets/images/projects/horizon-vr/horizon-vr-reactions-01.png -->
+          <span class="proto-col__kicker">02 &middot; Event start</span>
+          <h3 class="proto-col__title">Going live</h3>
+          <div class="media-container media-container--square" style="background: #0d141c;">
+            <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+              <source src="assets/videos/projects/horizon-vr/horizon-vr-stage-01.mp4" type="video/mp4">
+            </video>
           </div>
-          <p class="media-caption">Reactions that put the feedback loop back.</p>
+          <ul class="proto-list">
+            <li>Well lit and free-form while people settle in</li>
+            <li>Lights dim at &ldquo;Go Live&rdquo; to focus the stage</li>
+            <li>The 2D broadcast starts at the same moment</li>
+          </ul>
+        </div>
+        <div class="media-cell">
+          <span class="proto-col__kicker">03 &middot; On stage</span>
+          <h3 class="proto-col__title">Presenting</h3>
+          <div class="media-container media-container--square" style="background: #0d141c;">
+            <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+              <source src="assets/videos/projects/horizon-vr/horizon-vr-cockpit-01.mp4" type="video/mp4">
+            </video>
+          </div>
+          <ul class="proto-list">
+            <li>Bring existing slides or share a screen</li>
+            <li>Polls and questions engage the room mid-event</li>
+            <li>Live reactions from the VR and 2D audience</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -540,46 +471,92 @@
     <!-- ============================================
          2D EVENT TOOLING
          ============================================ -->
-    <section class="gallery fade-up" id="gallery-studio" data-section-label="2D Event Tooling">
+    <section class="gallery fade-up" id="gallery-studio" data-section-label="The 2D Redesign">
       <div class="gallery__head">
         <span class="gallery__label">In 2D</span>
-        <h2 class="gallery__title">Running the event, from a screen</h2>
-        <p class="gallery__lead">The 2D tooling a presenter or producer uses to set up, stage content and run the whole event, without living in a headset.</p>
+        <h2 class="gallery__title">The 2D redesign</h2>
+        <p class="gallery__lead">Every VR event still starts on a screen. I redesigned both sides of it: how you attend, and how you create and produce.</p>
       </div>
 
       <div class="stack">
-        <div class="media-cell">
-          <div class="media-container media-container--full">
-            <div class="media-placeholder">
-              <span class="media-placeholder__id">Event Studio</span>
-              <span class="media-placeholder__desc">2D backstage: room preview, a content-insert menu, and a broadcast-agenda timeline.</span>
+        <!-- Attending — before and after -->
+        <div>
+          <h3 class="ba-name">Attending</h3>
+          <div class="ba-pair">
+            <div class="media-cell">
+              <div class="media-container media-container--tall">
+                <span class="ba-chip ba-chip--before">Before</span>
+                <img src="assets/images/projects/horizon-vr/horizon-vr-before-attend-01.webp" alt="Before: a work event as a feed post, an event page and a livestream" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <p class="media-caption">Entry points were scattered across surfaces, and the audience had no home before the event.</p>
             </div>
-            <!-- asset: assets/images/projects/horizon-vr/horizon-vr-studio-01.png -->
+            <div class="ba-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+            <div class="media-cell">
+              <div class="media-container media-container--tall">
+                <span class="ba-chip ba-chip--after">After</span>
+                <img src="assets/images/projects/horizon-vr/horizon-vr-event-page-01.webp" alt="After: one live event page with a view of the VR stage, run of show, comments and questions, and a Join in VR banner" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <p class="media-caption">One go-to page: watch in 2D or join in VR, questions and polls in one place, and the recording afterward.</p>
+            </div>
           </div>
-          <p class="media-caption">Event Studio: build the agenda and stage content from a familiar 2D surface.</p>
         </div>
 
-        <div class="media-row">
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Event setup</span>
-                <span class="media-placeholder__desc">Creating the event: details, room, co-hosts, run-of-show.</span>
+        <!-- Creating — before and after -->
+        <div>
+          <h3 class="ba-name">Creating</h3>
+          <div class="ba-pair">
+            <div class="media-cell">
+              <div class="media-container media-container--tall">
+                <span class="ba-chip ba-chip--before">Before</span>
+                <img src="assets/images/projects/horizon-vr/horizon-vr-before-create-01.png" alt="Before: creating an event was a broadcast modal on Workplace with a timeline post and a flat list of scheduled broadcasts" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-setup-01.png -->
+              <p class="media-caption">Live and Events sat in separate tools, entry points were hidden, and there was no central place for insights.</p>
             </div>
-            <p class="media-caption">Setting an event up, start to finish.</p>
-          </div>
-          <div class="media-cell">
-            <div class="media-container media-container--tall">
-              <div class="media-placeholder">
-                <span class="media-placeholder__id">Content staging</span>
-                <span class="media-placeholder__desc">Staging slides, video, environments and 3D objects into each scene.</span>
+            <div class="ba-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+            <div class="media-cell">
+              <div class="media-container media-container--tall">
+                <span class="ba-chip ba-chip--after">After</span>
+                <img src="assets/images/projects/horizon-vr/horizon-vr-create-01.png" alt="After: an events hub to discover, create and manage events across 2D and VR, with insights and a link into Studio per event" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
-              <!-- asset: assets/images/projects/horizon-vr/horizon-vr-staging-01.png -->
+              <p class="media-caption">A central surface for 2D, VR or hybrid events, with delegation, collaboration and insights built in.</p>
             </div>
-            <p class="media-caption">Staging content into each beat of the show.</p>
           </div>
+        </div>
+
+        <!-- Producing — before and after -->
+        <div>
+          <h3 class="ba-name">Producing</h3>
+          <div class="ba-pair">
+            <div class="media-cell">
+              <div class="media-container media-container--tall">
+                <span class="ba-chip ba-chip--before">Before</span>
+                <img src="assets/images/projects/horizon-vr/horizon-vr-before-studio-01.webp" alt="Before: going live meant a basic webcam broadcast setup form" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <p class="media-caption">Going live was overwhelming, with no guidance and no support in the moment.</p>
+            </div>
+            <div class="ba-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+            <div class="media-cell">
+              <div class="media-container media-container--tall">
+                <span class="ba-chip ba-chip--after">After</span>
+                <img src="assets/images/projects/horizon-vr/horizon-vr-staging-01.webp" alt="After: a full event studio with branding, backgrounds and overlays beside a live stage preview and scenes" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <p class="media-caption">A guided setup, moderators and producers alongside, and full control of layouts, branding and scenes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-cell">
+          <div class="media-container media-container--full studio-compo">
+            <img class="studio-compo__card" src="assets/images/projects/horizon-vr/horizon-vr-setup-01.webp" alt="Event setup: choosing the broadcast method, room layout and seating capacity, with a stream test" loading="lazy">
+            <img class="studio-compo__shot" src="assets/images/projects/horizon-vr/horizon-vr-studio-01.webp" alt="Event Studio: agenda builder beside a live preview of the VR stage with scene management" loading="lazy">
+          </div>
+          <p class="media-caption">Event Studio: plan the whole event from 2D surfaces organizers already know. Big events take several people to plan, and none of that should happen in a headset.</p>
         </div>
       </div>
     </section>
@@ -592,7 +569,7 @@
   <section class="cta-band fade-up">
     <span class="cta-band__label">The full story</span>
     <h2 class="cta-band__title">There's a lot more behind this.</h2>
-    <p class="cta-band__sub">This is the high-level version. I can walk through the research, the decisions and the trade-offs end to end, on request.</p>
+    <p class="cta-band__sub">I present the rest live, in person or on a call.</p>
     <a href="mailto:ngvictor11@gmail.com?subject=VR%20work%20events%20walkthrough" class="cta-band__btn">
       Request a walkthrough
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -713,9 +690,9 @@
   <script>
     (function () {
       var nav = document.querySelector('.top-nav');
-      var heroReveal = document.querySelector('.hero-reveal');
-      if (!nav || !heroReveal) return;
-      function update() { nav.classList.toggle('is-light', heroReveal.getBoundingClientRect().top <= 0); }
+      var heroStage = document.getElementById('heroStage');
+      if (!nav || !heroStage) return;
+      function update() { nav.classList.toggle('is-light', heroStage.getBoundingClientRect().bottom <= 80); }
       window.addEventListener('scroll', update, { passive: true });
       update();
     })();
