@@ -490,8 +490,8 @@
 
     .cs-hero__title {
       font-family: var(--serif);
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 1.05;
+      font-size: clamp(2.5rem, 4vw, 3.75rem);
+      line-height: 1.08;
       font-weight: 400;
       color: var(--ink);
       letter-spacing: -0.03em;
@@ -1704,7 +1704,7 @@
           <div class="hero-content__text">
             <div class="hero-content__top">
               <div class="hero-content__left">
-                <h1 class="cs-hero__title" style="color: var(--ink);">From AI Testing to<br>Designers Shipping the Fix</h1>
+                <h1 class="cs-hero__title" style="color: var(--ink);">From AI Testing to Designers<br>Shipping the Fix</h1>
                 <p class="cs-hero__tldr" style="color: var(--ink-secondary);">
                   As Usability Lead for Ads Manager, I built an AI workflow that changed how our team dogfoods: from automated persona testing to shipping the frontend fixes myself. It cut our design to ship cycle in half.
                 </p>
@@ -2520,7 +2520,7 @@
   </div>
   <script>
     (function () {
-      var PASS = 'biscuit';
+      var PASSES = ['biscuit', 'pots'];
       var SESSION_KEY = 'vn_unlocked';
       var overlay = document.getElementById('pw-overlay');
       var input   = document.getElementById('pw-input');
@@ -2539,7 +2539,7 @@
       setTimeout(function () { input.focus(); }, 100);
 
       function attempt() {
-        if (input.value.trim().toLowerCase() === PASS) {
+        if (PASSES.indexOf(input.value.trim().toLowerCase()) !== -1) {
           sessionStorage.setItem(SESSION_KEY, '1');
           overlay.classList.remove('is-open');
           document.body.style.overflow = '';

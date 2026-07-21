@@ -1970,7 +1970,8 @@
 
     /* Full colour layer — clipped by scroll progress */
     .scroll-vase__fill {
-      clip-path: inset(100% 0 0 0);
+      -webkit-clip-path: url(#vase-wave);
+      clip-path: url(#vase-wave);
     }
 
     @media (max-width: 1024px) {
@@ -2958,6 +2959,15 @@
 
   <!-- ===== SCROLL VASE — Progress Indicator ===== -->
   <div class="scroll-vase" id="scroll-vase" aria-hidden="true">
+    <svg id="vase-wave-svg" width="0" height="0" style="position:absolute">
+      <defs>
+        <clipPath id="vase-wave" clipPathUnits="objectBoundingBox">
+          <path id="vase-wave-path" transform="translate(0 1)" d="M -1 0 Q -0.9375 -0.02 -0.875 0 T -0.75 0 T -0.625 0 T -0.5 0 T -0.375 0 T -0.25 0 T -0.125 0 T 0.0 0 T 0.125 0 T 0.25 0 T 0.375 0 T 0.5 0 T 0.625 0 T 0.75 0 T 0.875 0 T 1.0 0 T 1.125 0 T 1.25 0 T 1.375 0 T 1.5 0 T 1.625 0 T 1.75 0 T 1.875 0 T 2.0 0 L 2 2 L -1 2 Z">
+            <animateTransform attributeName="transform" type="translate" additive="sum" from="0 0" to="0.25 0" dur="5s" repeatCount="indefinite"/>
+          </path>
+        </clipPath>
+      </defs>
+    </svg>
     <div class="scroll-vase__layer scroll-vase__outline"></div>
     <div class="scroll-vase__layer scroll-vase__fill" id="scroll-vase-fill"></div>
   </div>
@@ -3002,7 +3012,12 @@
     (function () {
       var fill    = document.getElementById('scroll-vase-fill');
       var outline = document.querySelector('.scroll-vase__outline');
+      var wavePath = document.getElementById('vase-wave-path');
+      var waveSvg  = document.getElementById('vase-wave-svg');
       if (!fill) return;
+      if (waveSvg && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        waveSvg.pauseAnimations();
+      }
 
       var ticking = false;
 
@@ -3011,9 +3026,13 @@
         var docH     = document.documentElement.scrollHeight - window.innerHeight;
         var progress = docH > 0 ? Math.min(window.scrollY / docH, 1) : 0;
 
-        // Reveal colour from bottom up via clip-path inset
+        // Reveal colour from bottom up: the wavy waterline rises with scroll
         var top = 100 - (progress * 100);
-        fill.style.clipPath = 'inset(' + top + '% 0 0 0)';
+        if (wavePath) {
+          wavePath.setAttribute('transform', 'translate(0 ' + (top / 100).toFixed(4) + ')');
+        } else {
+          fill.style.clipPath = 'inset(' + top + '% 0 0 0)';
+        }
 
         // Outline fades as colour appears
         outline.style.opacity = String(0.1 - progress * 0.06);
@@ -3313,7 +3332,7 @@
   <!-- ===== PASSWORD GATE ===== -->
   <script>
     (function () {
-      var PASS = 'biscuit';
+      var PASSES = ['biscuit', 'pots'];
       var SESSION_KEY = 'vn_unlocked';
       var overlay = document.getElementById('pw-overlay');
       var input   = document.getElementById('pw-input');
@@ -3339,7 +3358,7 @@
       }
 
       function attempt() {
-        if (input.value.trim().toLowerCase() === PASS) {
+        if (PASSES.indexOf(input.value.trim().toLowerCase()) !== -1) {
           sessionStorage.setItem(SESSION_KEY, '1');
           overlay.classList.remove('is-open');
           if (pendingHref) window.location.href = pendingHref;

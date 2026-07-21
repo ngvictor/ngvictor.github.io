@@ -552,11 +552,11 @@
        CTA BAND — present in full on request
        ============================================ -->
   <section class="cta-band fade-up">
-    <span class="cta-band__label">The full story</span>
-    <h2 class="cta-band__title">There's a lot more behind this.</h2>
-    <p class="cta-band__sub">I present the rest live, in person or on a call.</p>
-    <a href="mailto:ngvictor11@gmail.com?subject=VR%20work%20events%20walkthrough" class="cta-band__btn">
-      Request a walkthrough
+    <span class="cta-band__label">If you're a hiring manager</span>
+    <h2 class="cta-band__title">Contact me for the full case study</h2>
+    <p class="cta-band__sub">I present it live, in person or on a call.</p>
+    <a href="mailto:ngvictor11@gmail.com?subject=VR%20work%20events%20full%20case%20study" class="cta-band__btn">
+      Email me
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
   </section>
@@ -723,7 +723,7 @@
   </div>
   <script>
     (function () {
-      var PASS = 'biscuit';
+      var PASSES = ['biscuit', 'pots'];
       var SESSION_KEY = 'vn_unlocked';
       var overlay = document.getElementById('pw-overlay');
       var input   = document.getElementById('pw-input');
@@ -735,7 +735,7 @@
       document.body.style.overflow = 'hidden';
       setTimeout(function () { input.focus(); }, 100);
       function attempt() {
-        if (input.value.trim().toLowerCase() === PASS) {
+        if (PASSES.indexOf(input.value.trim().toLowerCase()) !== -1) {
           sessionStorage.setItem(SESSION_KEY, '1');
           overlay.classList.remove('is-open');
           document.body.style.overflow = '';

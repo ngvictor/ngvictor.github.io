@@ -2496,7 +2496,7 @@
   </div>
   <script>
     (function () {
-      var PASS = 'biscuit';
+      var PASSES = ['biscuit', 'pots'];
       var SESSION_KEY = 'vn_unlocked';
       var overlay = document.getElementById('pw-overlay');
       var input   = document.getElementById('pw-input');
@@ -2515,7 +2515,7 @@
       setTimeout(function () { input.focus(); }, 100);
 
       function attempt() {
-        if (input.value.trim().toLowerCase() === PASS) {
+        if (PASSES.indexOf(input.value.trim().toLowerCase()) !== -1) {
           sessionStorage.setItem(SESSION_KEY, '1');
           overlay.classList.remove('is-open');
           document.body.style.overflow = '';
