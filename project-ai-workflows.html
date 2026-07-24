@@ -353,7 +353,7 @@
     .pterm__dot { width: 10px; height: 10px; border-radius: 50%; }
     .pterm__dot--r { background: #ff5f56; } .pterm__dot--y { background: #febc2e; } .pterm__dot--g { background: #28c840; }
     .pterm__title { flex: 1; text-align: center; margin-left: -26px; color: #8b8780; font-size: 11px; font-family: var(--sans); letter-spacing: 0.02em; }
-    .pterm__body { padding: 18px 20px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: clamp(11px, 1.05vw, 13px); line-height: 1.9; color: #e9e4da; }
+    .pterm__body { padding: 18px 20px 28px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: clamp(11px, 1.05vw, 13px); line-height: 1.9; color: #e9e4da; }
     .pt-muted { color: #6f6b63; }
     .pt-prompt { color: #e6b54a; }
     .pt-cmd { white-space: pre-wrap; }
@@ -365,7 +365,7 @@
     .pt-bullet { color: #e6b54a; }
     .pt-check { color: #5fbf8a; }
     @media (prefers-reduced-motion: reduce) { .pt-cursor { animation: none; } }
-    @media (max-width: 768px) { .hero-term { width: 100%; margin-top: 24px; } .pterm__body { font-size: 11px; padding: 14px 16px; line-height: 1.75; } }
+    @media (max-width: 768px) { .hero-term { width: 100%; margin-top: 24px; } .pterm__body { font-size: 11px; padding: 14px 16px 22px; line-height: 1.75; } }
 
     .hero-reveal {
       position: relative;
@@ -1776,44 +1776,59 @@
         </div>
       </div>
 
-      <!-- Before → After transformation card -->
+      <!-- Before → After transformation diagram -->
       <div style="margin-top: 48px; border: 1px solid var(--border); border-radius: 20px; overflow: hidden;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
 
-        <!-- BEFORE region -->
-        <div style="padding: 30px 34px 34px; background: var(--surface-card);">
-          <div style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 18px;">Before &middot; the manual loop</div>
-          <div style="display: flex; align-items: center; gap: 0; flex-wrap: wrap; row-gap: 10px;">
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.82rem; font-weight: 500; padding: 10px 18px; border-radius: 8px;">Manual dogfood</div>
-            <div style="color: var(--ink-faint); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.82rem; font-weight: 500; padding: 10px 18px; border-radius: 8px;">Task every finding</div>
-            <div style="color: var(--ink-faint); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.82rem; font-weight: 500; padding: 10px 18px; border-radius: 8px;">Prioritization session</div>
-            <div style="color: var(--ink-faint); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.82rem; font-weight: 500; padding: 10px 18px; border-radius: 8px;">Usability roadmap</div>
-            <div style="color: var(--ink-faint); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div style="background: transparent; border: 1px dashed rgba(192,57,43,0.5); color: #c0392b; font-size: 0.82rem; font-weight: 500; padding: 10px 18px; border-radius: 8px;">UI fixes cut for bandwidth</div>
+          <!-- BEFORE column -->
+          <div style="padding: 32px 34px 38px; background: var(--surface-card);">
+            <div style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 24px;">Before &middot; the manual loop</div>
+            <div style="max-width: 340px; margin: 0 auto;">
+              <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.92rem; font-weight: 500; padding: 12px 16px; border-radius: 999px; text-align: center;">Manual dogfooding</div>
+              <div style="text-align: center; color: var(--ink-faint); font-size: 1.05rem; line-height: 1; margin: 8px 0;">&darr;</div>
+              <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.92rem; font-weight: 500; padding: 12px 16px; border-radius: 999px; text-align: center;">Record &amp; task every finding</div>
+              <div style="text-align: center; color: var(--ink-faint); font-size: 1.05rem; line-height: 1; margin: 8px 0;">&darr;</div>
+              <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.92rem; font-weight: 500; padding: 12px 16px; border-radius: 999px; text-align: center;">Prioritization session</div>
+              <div style="text-align: center; color: var(--ink-faint); font-size: 1.05rem; line-height: 1; margin: 8px 0;">&darr;</div>
+              <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); font-size: 0.92rem; font-weight: 500; padding: 12px 16px; border-radius: 999px; text-align: center;">Usability roadmap</div>
+              <div style="text-align: center; color: var(--ink-faint); font-size: 1.05rem; line-height: 1; margin: 8px 0 0;">&darr;</div>
+              <div style="width: 62%; margin: 10px auto 20px; border-top: 2px dashed rgba(192,57,43,0.55);"></div>
+              <div style="background: #c0392b; color: #fff; font-size: 0.92rem; font-weight: 600; padding: 12px 16px; border-radius: 999px; text-align: center; transform: rotate(-3.5deg); box-shadow: 0 12px 26px -12px rgba(192,57,43,0.55);">UI fixes cut for bandwidth</div>
+              <div style="width: fit-content; margin: 26px auto 0; border: 1px solid var(--border-hover); border-radius: 999px; padding: 7px 16px; font-size: 0.78rem; font-weight: 600; color: var(--ink-secondary);">&#8635; repeats next quarter</div>
+            </div>
           </div>
 
-          <div style="margin-top: 24px; border-left: 2px solid var(--accent-forest); padding: 4px 0 4px 22px; max-width: 760px;">
-            <div style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-forest); margin-bottom: 8px;">Where it leaks</div>
-            <p class="body-text" style="margin: 0; font-size: 1rem;">Engineering bandwidth is finite, so the “low priority” work, especially small UI fixes, rarely survives prioritization. Those fixes are real usability debt that just never ships. Learning to vibe code as a designer closes that gap. I find the issue, then ship the fix myself.</p>
+          <!-- AFTER column -->
+          <div style="padding: 32px 34px 38px; background: linear-gradient(180deg, rgba(45,106,79,0.08), rgba(45,106,79,0.02));">
+            <div style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-forest); margin-bottom: 24px;">After &middot; with the dogfooding agent</div>
+            <div style="max-width: 340px; margin: 0 auto;">
+              <div style="background: var(--ink); color: #fff; font-size: 0.92rem; font-weight: 600; padding: 12px 16px; border-radius: 999px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 9px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; flex: 0 0 auto;"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.2" fill="currentColor"/><circle cx="9" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.1" fill="currentColor" stroke="none"/></svg>
+                AI agent dogfoods both platforms
+              </div>
+              <div style="text-align: center; color: var(--accent-forest); font-size: 1.05rem; line-height: 1; margin: 8px 0;">&darr;</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div style="background: var(--surface); border: 1.5px solid var(--accent-forest); color: var(--ink); font-size: 0.82rem; font-weight: 500; padding: 9px 8px; border-radius: 999px; text-align: center;">Screenshots captured</div>
+                <div style="background: var(--surface); border: 1.5px solid var(--accent-forest); color: var(--ink); font-size: 0.82rem; font-weight: 500; padding: 9px 8px; border-radius: 999px; text-align: center;">Tasks filed</div>
+                <div style="background: var(--surface); border: 1.5px solid var(--accent-forest); color: var(--ink); font-size: 0.82rem; font-weight: 500; padding: 9px 8px; border-radius: 999px; text-align: center;">Effort sized</div>
+                <div style="background: var(--surface); border: 1.5px solid var(--accent-forest); color: var(--ink); font-size: 0.82rem; font-weight: 500; padding: 9px 8px; border-radius: 999px; text-align: center;">Fixes recommended</div>
+              </div>
+              <div style="text-align: center; color: var(--accent-forest); font-size: 1.05rem; line-height: 1; margin: 8px 0;">&darr;</div>
+              <div style="position: relative;">
+                <div class="shine" style="background: var(--accent-forest); color: #fff; font-size: 0.95rem; font-weight: 600; padding: 13px 16px; border-radius: 999px; text-align: center; box-shadow: 0 12px 26px -12px rgba(45,106,79,0.6);">Quick UI fixes shipped by design</div>
+                <div style="position: absolute; top: -13px; right: -8px; background: #1e1e1e; border-radius: 8px; padding: 4px 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.72rem; box-shadow: 0 6px 16px rgba(0,0,0,0.25);"><span style="color: #98c379;">+157</span> <span style="color: #e06c75;">&minus;87</span></div>
+              </div>
+              <div style="text-align: center; color: var(--accent-forest); font-size: 1.05rem; line-height: 1; margin: 8px 0;">&darr;</div>
+              <div style="background: var(--ink); color: #fff; font-size: 0.92rem; font-weight: 600; padding: 12px 16px; border-radius: 999px; text-align: center;">A leaner usability roadmap</div>
+            </div>
           </div>
+
         </div>
+      </div>
 
-        <!-- AFTER region -->
-        <div style="padding: 30px 34px 34px; background: linear-gradient(180deg, rgba(44,74,62,0.07), rgba(44,74,62,0.025)); border-top: 1px solid var(--border);">
-          <div style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-craft); margin-bottom: 18px;">After &middot; with the dogfooding agent</div>
-          <div style="display: flex; align-items: center; gap: 0; flex-wrap: wrap; row-gap: 10px;">
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink); font-size: 0.82rem; font-weight: 600; padding: 10px 18px; border-radius: 8px;">AI dogfoods both platforms</div>
-            <div style="color: var(--accent-craft); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink); font-size: 0.82rem; font-weight: 600; padding: 10px 18px; border-radius: 8px;">Findings scored &amp; filed automatically</div>
-            <div style="color: var(--accent-craft); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div class="shine" style="background: var(--accent-craft); border: 1px solid var(--accent-craft); color: #fff; font-size: 0.82rem; font-weight: 600; padding: 10px 18px; border-radius: 8px; box-shadow: 0 6px 18px -8px rgba(44,74,62,0.6);">Quick UI fixes shipped by design</div>
-            <div style="color: var(--accent-craft); font-size: 1.2rem; padding: 0 10px;">&rarr;</div>
-            <div style="background: var(--surface); border: 1px solid var(--border); color: var(--ink); font-size: 0.82rem; font-weight: 600; padding: 10px 18px; border-radius: 8px;">Roadmap holds only the deep work</div>
-          </div>
-        </div>
-
+      <div style="margin-top: 28px; border-left: 2px solid var(--accent-forest); padding: 4px 0 4px 22px; max-width: 760px;">
+        <div style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-forest); margin-bottom: 8px;">Where it leaks</div>
+        <p class="body-text" style="margin: 0; font-size: 1rem;">Engineering bandwidth is finite, so the “low priority” work, especially small UI fixes, rarely survives prioritization. Those fixes are real usability debt that just never ships. Learning to vibe code as a designer closes that gap. I find the issue, then ship the fix myself.</p>
       </div>
     </section>
 
